@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="reveal.js/favicon.ico">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/esri-uc-2017.css" id="theme">
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="reveal.js/lib/css/solarized_dark.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level2">
+
+<section data-background="img/bg_title.jpg">
+<h1>
+Python in ArcGIS Pro
+</h1>
+<br>
+<h2>
+Clinton Dow
+</h2>
+</section>
+</section>
+<section><section id="introduction" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Introduction</h1></section><section id="todays-presentation" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Today’s Presentation</h2>
+<p>Overview of ArcGIS Pro</p>
+<ul>
+<li>Why Switch to Pro?</li>
+<li>Automating ArcGIS Pro</li>
+<li>Using and creating Packages</li>
+</ul>
+</section><section id="product-engineer---geoprocessing-at-esri-california-1-year-8-months" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Product Engineer - Geoprocessing at Esri California (1 year 8 months)</h2>
+<p><br></p>
+<ul>
+<li><p>Python</p></li>
+<li>ArcPy</li>
+<li><p>Conda Integration</p></li>
+<li><p>C#/WPF</p></li>
+<li>Python Backstage</li>
+<li><p>Charts and Graphs</p></li>
+<li><p>Presentations</p></li>
+<li>Dev Summit</li>
+<li>User Conference</li>
+<li>PyCon</li>
+<li>GeoPython</li>
+<li><p>AnacondaCon</p></li>
+</ul>
+</section><section id="gis-developer-at-matrix-solutions-in-calgary-2-years" class="slide level2" data-background="img/bg_left.jpg">
+<h2>GIS Developer at Matrix Solutions in Calgary (2 years)</h2>
+<ul>
+<li>Civil Engineering/Environmental Consultant Firm</li>
+<li>Created several dozen custom Geoprocessing tools in Python</li>
+<li>Customized ArcGIS with Python and C#/WPF</li>
+</ul>
+</section><section id="computer-nerd-30-years" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Computer Nerd (30 years)</h2>
+<ul>
+<li>Open Source Development Experience</li>
+<li>Community Moderation</li>
+<li>Grown up with the internet and programming</li>
+</ul>
+</section></section>
+<section><section id="section" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1><img src="img/esri_logo_lrg.png" class="tight" /></h1></section><section id="why-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Why ArcGIS Pro?</h2>
+<p>Modern View for ArcGIS:</p>
+<ul>
+<li>Nearly all active development and new features</li>
+<li>.Net 4.5 concurrency model</li>
+<li>Integrated 2D and 3D views</li>
+<li>Modern Python Experience</li>
+<li>Supports environments and packages via Conda</li>
+</ul>
+</section><section id="arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
+<h2>ArcGIS Pro</h2>
+<figure>
+<img src="img/pro_full.png" style="width: 1000px; height=780px; background-color:  rgba(255, 255, 255, 1);" />
+</figure>
+</section></section>
+<section><section id="python-features-in-arcgis-pro-ui" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Python Features in ArcGIS Pro UI</h1></section><section id="python-window" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Python Window</h2>
+<p>Quick means of interacting with ArcGIS Pro using Python</p>
+<ul>
+<li>Good way to practice and test concepts</li>
+<li>View help documentation for ArcPy functions</li>
+<li>Import and Export Python Scripts</li>
+</ul>
+<p>Interactive Selections</p>
+<ul>
+<li>Operate on data selected on Map</li>
+<li>Automatically show result in Map</li>
+</ul>
+<figure>
+<img src="img/python_window.png" />
+</figure>
+</section><section id="tbx-toolboxes" class="slide level2" data-background="img/bg_left.jpg">
+<h2>TBX Toolboxes</h2>
+<p><a href="https://geonet.esri.com/blogs/dan_patterson/2016/05/19/toolbox-creation-in-arcgis-pro">The original ArcGIS toolbox.</a></p>
+<ul>
+<li>Created via the ArcGIS GUI</li>
+<li>Tool Validation not set in Python script</li>
+<li>Set via ‘Properties’ menu of tool in ArcGIS</li>
+</ul>
+</section><section id="python-toolboxes" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Python Toolboxes</h2>
+<p><a href="http://pro.arcgis.com/en/pro-app/arcpy/geoprocessing_and_python/a-quick-tour-of-python-toolboxes.htm">ArcGIS toolboxes revisited in Python</a></p>
+<ul>
+<li>All steps defined in a .pyt file</li>
+<li>Ease of testing &amp; debugging</li>
+<li>Validation defined within script</li>
+<li>Works with Python IDEs</li>
+<li>Define .pyt as a Python file type in settings
+<ul>
+<li>Syntax Highlighting</li>
+<li>Autocomplete</li>
+</ul></li>
+</ul>
+</section><section id="model-builder" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Model Builder</h2>
+<p><a href="http://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/modelbuilder/what-is-modelbuilder-.htm">Model Builder</a></p>
+<p>Allows for visual creation of Geoprocessing tools</p>
+<ul>
+<li>Consume custom geoprocessing tools</li>
+<li>Ensure you are setting an output!</li>
+<li>Export to Python code</li>
+<li>A good way to introduce scripting concepts</li>
+</ul>
+<figure>
+<img src="img/modelbuilder.png" />
+</figure>
+</section><section id="python-packages-in-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Python Packages in ArcGIS Pro</h2>
+<p>Significant effort has been made at Esri to integrate Python package management and virtual environment support into the ArcGIS Pro experience.</p>
+<ul>
+<li>Shipped with default virtual environment</li>
+<li>In-app user interface</li>
+<li>Packaging effort for Esri Python code</li>
+</ul>
+</section><section id="conda-in-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Conda in ArcGIS Pro</h2>
+<figure>
+<img src="img/pro_conda.png" style="width: 1000px; height=780px; background-color:  rgba(255, 255, 255, 1);" />
+</figure>
+</section></section>
+<section><section id="python-packages-and-environments" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Python Packages and Environments</h1></section><section id="package-management-on-windows" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Package Management on Windows</h2>
+<p>Using pip, wheels, virtualenvs</p>
+<ul>
+<li>Packaged with distributions of Python</li>
+<li>Package devs: On OSX and Linux, ‘easy’ to get the deps! Use a system package manager (e.g. apt, brew, yum)</li>
+<li>Included Compiler (e.g. clang, gcc).</li>
+</ul>
+</section><section id="virtual-environments" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Virtual Environments</h2>
+<p>What are Virtual Environments</p>
+<ul>
+<li>Self-contained instances of Python</li>
+<li>Seperate from main Python installation</li>
+<li>Can contain a unique set of packages</li>
+<li>Useful when working on multiple projects at one time</li>
+<li>Can be shared between team members</li>
+</ul>
+</section><section id="what-about-windows" class="slide level2" data-background="img/bg_left.jpg">
+<h2>What about Windows?</h2>
+<p>Windows lacks broadly used package management</p>
+<ul>
+<li>Only developers have a C compiler on their machine (Typically Visual Studio)</li>
+<li>Difficult problems for many organizations to reliably solve</li>
+<li>“Works on my machine but not yours” problem.</li>
+<li>Supporting users takes up valuable dev time</li>
+<li>No guarantee that customers will be supported</li>
+</ul>
+</section></section>
+<section><section id="enter-conda" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Enter Conda</h1></section><section id="why-conda" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Why Conda?</h2>
+<p>Scientific Python community identified that there was a gap not being addressed by the core Python infrastructure, limiting their ability to get packages into the hands of users</p>
+<p>Industry standard built by people who care about this space — Continuum Analytics</p>
+<p>Handles dependencies for many languages (C, C++, R and of course Python)</p>
+<p>Built for Python first, but it really solves a much broader infrastructural issue.</p>
+<figure>
+<img src="img/conda_logo.png" style="width: 400px; height: 150px; background-color:  rgba(255, 255, 255, 1);" />
+</figure>
+</section><section id="coming-soon" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Coming Soon</h2>
+<p>Support for custom channels</p>
+<ul>
+<li>Public Channels</li>
+<li>Anaconda.org</li>
+<li>Private Channels</li>
+<li>Control package distribution, licensing etc.</li>
+</ul>
+<p><br> Package Creation via UI</p>
+<ul>
+<li>Currently only available in cmd line</li>
+<li>Share packages with colleagues and customers</li>
+</ul>
+<p><br> Additional Support on Server</p>
+<ul>
+<li>Conda packages and environments fully supported on Enterprise</li>
+<li>ArcGIS Python API Notebooks served on Enterprise</li>
+</ul>
+</section></section>
+<section><section id="using-packages-to-our-advantage" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Using Packages to our Advantage</h1></section><section id="open-source-ecosystem" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Open Source Ecosystem</h2>
+<p>The Python Ecosystem includes thousands of open-source packages. Saves development time and money.</p>
+<p>Esri is using several packages in ArcGIS</p>
+<ul>
+<li>NumPy</li>
+<li>SciPy</li>
+<li>matplotlib</li>
+<li>Pandas (coming soon)</li>
+</ul>
+</section><section id="open-source-ecosystem-1" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Open Source Ecosystem</h2>
+<p>Automate or Extend your ArcGIS capabilities</p>
+<ul>
+<li><a href="https://repo.continuum.io/pkgs/">Thousands of open-souce Python packages</a></li>
+<li><a href="https://conda-forge.github.io/feedstocks">Conda-Forge community</a></li>
+</ul>
+<p>Easily package and share your work</p>
+<ul>
+<li><a href="https://github.com/conda/conda-build">Conda-build</a></li>
+<li><a href="https://anaconda.org/esri">Anaconda.org</a></li>
+<li>Host packages on network</li>
+</ul>
+</section><section id="setting-up-a-development-environment" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Setting up a Development Environment</h2>
+<p>What can we install? Not just scientific packages.</p>
+<ul>
+<li>Documentation</li>
+<li>Datasets</li>
+<li>GUI toolkits (PyQt, TKinter)</li>
+<li>Database Drivers (psycopg2)</li>
+<li>C++ Libraries (Boost)</li>
+<li>IDEs
+<ul>
+<li><a href="https://github.com/spyder-ide/spyder#overview">Spyder</a></li>
+<li><a href="https://jupyter.org/">Juptyer</a></li>
+</ul></li>
+</ul>
+</section><section id="setting-up-a-production-environment" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Setting up a Production Environment</h2>
+<p>Proven environments that will ‘Just work’</p>
+<ul>
+<li>Solves ‘works on my machine’ problem</li>
+<li>Metapackages
+<ul>
+<li>Packages which only have requirements</li>
+</ul></li>
+<li><a href="https://conda.io/docs/using/envs.html#id12">Environment.yaml</a>
+<ul>
+<li>More complex requirements.txt</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="packaging-tools-the-right-way" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Packaging Tools the Right Way</h1></section><section id="creating-a-package" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Creating a Package</h2>
+<p>Using setuptools and distutils to create a Python Package.</p>
+<ul>
+<li>setuptools</li>
+<li>setup</li>
+<li>pkg_resources</li>
+<li>distutils</li>
+<li>Legacy, use setuptools if possible</li>
+</ul>
+<figure>
+<img src="img/pkg.png" />
+</figure>
+</section><section id="deploying-a-package" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Deploying a Package</h2>
+<p>On a network</p>
+<ul>
+<li>Point at a network location containing a package</li>
+</ul>
+<p>Via a http server</p>
+<ul>
+<li>All advantages of any http service</li>
+<li>Authentication</li>
+<li>Metrics</li>
+<li>Availability</li>
+</ul>
+<p>Anaconda.org</p>
+</section><section id="deploying-a-tool-as-a-service" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Deploying a Tool as a Service</h2>
+<p>Tools and data sets can be uploaded to ArcGIS Enterprise or ArcGIS Online as services.</p>
+<ul>
+<li>Custom GP Tools</li>
+<li>Datasets</li>
+<li>Results</li>
+</ul>
+</section><section id="consuming-services-via-the-arcgis-python-api" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Consuming services via the ArcGIS Python API</h2>
+<p>The ArcGIS Python API is a cross-platform solution which allows for users to view, administer and interact with services on ArcGIS Enterprise or ArcGIS Online.</p>
+<ul>
+<li><a href="https://developers.arcgis.com/python/sample-notebooks/">Sample Notebooks</a></li>
+</ul>
+</section></section>
+<section><section id="thank-you-questionscomments-cdowesri.com" class="titleslide slide level1" data-background="img/bg_title.jpg"><h1>Thank you!! Questions/Comments?? cdow@esri.com</h1></section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
