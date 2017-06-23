@@ -37,7 +37,7 @@
 
 <section data-background="img/bg_title.jpg">
 <h1>
-Python in ArcGIS Pro
+Python Package Management in ArcGIS Pro Using Conda
 </h1>
 <br>
 <h2>
@@ -45,278 +45,206 @@ Clinton Dow
 </h2>
 </section>
 </section>
-<section><section id="introduction" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Introduction</h1></section><section id="todays-presentation" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Today’s Presentation</h2>
-<p>Overview of ArcGIS Pro</p>
+<section><section id="overview-of-conda-in-arcgis-pro" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Overview of Conda in ArcGIS Pro</h1></section><section id="what-is-conda" class="slide level2" data-background="img/bg_left.jpg">
+<h2>What is Conda?</h2>
 <ul>
-<li>Why Switch to Pro?</li>
-<li>Automating ArcGIS Pro</li>
-<li>Using and creating Packages</li>
-</ul>
-</section><section id="product-engineer---geoprocessing-at-esri-california-1-year-8-months" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Product Engineer - Geoprocessing at Esri California (1 year 8 months)</h2>
-<p><br></p>
+<li>Python virtual environment and package manager
 <ul>
-<li><p>Python</p></li>
-<li>ArcPy</li>
-<li><p>Conda Integration</p></li>
-<li><p>C#/WPF</p></li>
-<li>Python Backstage</li>
-<li><p>Charts and Graphs</p></li>
-<li><p>Presentations</p></li>
-<li>Dev Summit</li>
-<li>User Conference</li>
-<li>PyCon</li>
-<li>GeoPython</li>
-<li><p>AnacondaCon</p></li>
-</ul>
-</section><section id="gis-developer-at-matrix-solutions-in-calgary-2-years" class="slide level2" data-background="img/bg_left.jpg">
-<h2>GIS Developer at Matrix Solutions in Calgary (2 years)</h2>
+<li>Multiple instances of python.exe and supporting files</li>
+<li>Easily add/remove 3rd party code to projects</li>
+<li>Automates dependency handling</li>
+</ul></li>
+<li>Subset of Anaconda functionality
 <ul>
-<li>Civil Engineering/Environmental Consultant Firm</li>
-<li>Created several dozen custom Geoprocessing tools in Python</li>
-<li>Customized ArcGIS with Python and C#/WPF</li>
-</ul>
-</section><section id="computer-nerd-30-years" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Computer Nerd (30 years)</h2>
+<li>Does not include all packages</li>
+<li>Command Line Interface only, no GUI</li>
+<li>Additional features supporting <a href="https://anaconda.org/" class="uri">https://anaconda.org/</a></li>
+</ul></li>
+<li>Open Source, written in Python
 <ul>
-<li>Open Source Development Experience</li>
-<li>Community Moderation</li>
-<li>Grown up with the internet and programming</li>
-</ul>
-</section></section>
-<section><section id="section" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1><img src="img/esri_logo_lrg.png" class="tight" /></h1></section><section id="why-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Why ArcGIS Pro?</h2>
-<p>Modern View for ArcGIS:</p>
-<ul>
-<li>Nearly all active development and new features</li>
-<li>.Net 4.5 concurrency model</li>
-<li>Integrated 2D and 3D views</li>
-<li>Modern Python Experience</li>
-<li>Supports environments and packages via Conda</li>
-</ul>
-</section><section id="arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
-<h2>ArcGIS Pro</h2>
-<figure>
-<img src="img/pro_full.png" style="width: 1000px; height=780px; background-color:  rgba(255, 255, 255, 1);" />
-</figure>
-</section></section>
-<section><section id="python-features-in-arcgis-pro-ui" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Python Features in ArcGIS Pro UI</h1></section><section id="python-window" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Python Window</h2>
-<p>Quick means of interacting with ArcGIS Pro using Python</p>
-<ul>
-<li>Good way to practice and test concepts</li>
-<li>View help documentation for ArcPy functions</li>
-<li>Import and Export Python Scripts</li>
-</ul>
-<p>Interactive Selections</p>
-<ul>
-<li>Operate on data selected on Map</li>
-<li>Automatically show result in Map</li>
-</ul>
-<figure>
-<img src="img/python_window.png" />
-</figure>
-</section><section id="tbx-toolboxes" class="slide level2" data-background="img/bg_left.jpg">
-<h2>TBX Toolboxes</h2>
-<p><a href="https://geonet.esri.com/blogs/dan_patterson/2016/05/19/toolbox-creation-in-arcgis-pro">The original ArcGIS toolbox.</a></p>
-<ul>
-<li>Created via the ArcGIS GUI</li>
-<li>Tool Validation not set in Python script</li>
-<li>Set via ‘Properties’ menu of tool in ArcGIS</li>
-</ul>
-</section><section id="python-toolboxes" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Python Toolboxes</h2>
-<p><a href="http://pro.arcgis.com/en/pro-app/arcpy/geoprocessing_and_python/a-quick-tour-of-python-toolboxes.htm">ArcGIS toolboxes revisited in Python</a></p>
-<ul>
-<li>All steps defined in a .pyt file</li>
-<li>Ease of testing &amp; debugging</li>
-<li>Validation defined within script</li>
-<li>Works with Python IDEs</li>
-<li>Define .pyt as a Python file type in settings
-<ul>
-<li>Syntax Highlighting</li>
-<li>Autocomplete</li>
+<li><a href="https://github.com/conda/conda" class="uri">https://github.com/conda/conda</a></li>
+<li>Created by Continuum Analytics</li>
 </ul></li>
 </ul>
-</section><section id="model-builder" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Model Builder</h2>
-<p><a href="http://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/modelbuilder/what-is-modelbuilder-.htm">Model Builder</a></p>
-<p>Allows for visual creation of Geoprocessing tools</p>
-<ul>
-<li>Consume custom geoprocessing tools</li>
-<li>Ensure you are setting an output!</li>
-<li>Export to Python code</li>
-<li>A good way to introduce scripting concepts</li>
-</ul>
 <figure>
-<img src="img/modelbuilder.png" />
+<img src="img/ca.png" />
 </figure>
-</section><section id="python-packages-in-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Python Packages in ArcGIS Pro</h2>
-<p>Significant effort has been made at Esri to integrate Python package management and virtual environment support into the ArcGIS Pro experience.</p>
+</section><section id="product-story" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Product Story</h2>
 <ul>
-<li>Shipped with default virtual environment</li>
-<li>In-app user interface</li>
-<li>Packaging effort for Esri Python code</li>
+<li>ArcGIS heavily dependent on Python, shipped with specific version
+<ul>
+<li>Locked-in to package versions ie: NumPy, SciPy</li>
+<li>Broken Python env breaks the application</li>
+<li>No package management</li>
+</ul></li>
+<li>Python Ecosystem becoming more robust
+<ul>
+<li>Data Science/Visualization</li>
+<li>Machine Learning</li>
+<li>Scientific Libraries</li>
+</ul></li>
+<li>Desire for enhanced sharing experience
+<ul>
+<li>Handles requirements</li>
+<li>Ease of distribution</li>
+</ul></li>
 </ul>
-</section><section id="conda-in-arcgis-pro" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Conda in ArcGIS Pro</h2>
-<figure>
-<img src="img/pro_conda.png" style="width: 1000px; height=780px; background-color:  rgba(255, 255, 255, 1);" />
-</figure>
 </section></section>
-<section><section id="python-packages-and-environments" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Python Packages and Environments</h1></section><section id="package-management-on-windows" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Package Management on Windows</h2>
-<p>Using pip, wheels, virtualenvs</p>
-<ul>
-<li>Packaged with distributions of Python</li>
-<li>Package devs: On OSX and Linux, ‘easy’ to get the deps! Use a system package manager (e.g. apt, brew, yum)</li>
-<li>Included Compiler (e.g. clang, gcc).</li>
-</ul>
-</section><section id="virtual-environments" class="slide level2" data-background="img/bg_left.jpg">
+<section><section id="terminology" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Terminology</h1></section><section id="virtual-environments" class="slide level2" data-background="img/bg_left.jpg">
 <h2>Virtual Environments</h2>
-<p>What are Virtual Environments</p>
 <ul>
-<li>Self-contained instances of Python</li>
-<li>Seperate from main Python installation</li>
-<li>Can contain a unique set of packages</li>
-<li>Useful when working on multiple projects at one time</li>
-<li>Can be shared between team members</li>
-</ul>
-</section><section id="what-about-windows" class="slide level2" data-background="img/bg_left.jpg">
-<h2>What about Windows?</h2>
-<p>Windows lacks broadly used package management</p>
+<li>Concept
 <ul>
-<li>Only developers have a C compiler on their machine (Typically Visual Studio)</li>
-<li>Difficult problems for many organizations to reliably solve</li>
-<li>“Works on my machine but not yours” problem.</li>
-<li>Supporting users takes up valuable dev time</li>
-<li>No guarantee that customers will be supported</li>
+<li>‘Virtual Machine Lite’</li>
+<li>Allows multiple side-by-side Pythons on one machine</li>
+<li>Different configurations for each Python installation</li>
+</ul></li>
+<li>Conda Environments
+<ul>
+<li>Package Dependency SAT Solver
+<ul>
+<li>Satisfiability Solver</li>
+</ul></li>
+<li>Stored in the folder within the Pro installation</li>
+</ul></li>
+<li>Simply a folder on disk, nothing fancy
+<ul>
+<li>Cheap to create, disposable/iterable</li>
+<li>Easy to replicate with metadata</li>
+</ul></li>
 </ul>
-</section></section>
-<section><section id="enter-conda" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Enter Conda</h1></section><section id="why-conda" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Why Conda?</h2>
-<p>Scientific Python community identified that there was a gap not being addressed by the core Python infrastructure, limiting their ability to get packages into the hands of users</p>
-<p>Industry standard built by people who care about this space — Continuum Analytics</p>
-<p>Handles dependencies for many languages (C, C++, R and of course Python)</p>
-<p>Built for Python first, but it really solves a much broader infrastructural issue.</p>
 <figure>
-<img src="img/conda_logo.png" style="width: 400px; height: 150px; background-color:  rgba(255, 255, 255, 1);" />
+<img src="img/envs.jpg" />
 </figure>
-</section><section id="coming-soon" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Coming Soon</h2>
-<p>Support for custom channels</p>
+</section><section id="packages" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Packages</h2>
 <ul>
-<li>Public Channels</li>
-<li>Anaconda.org</li>
-<li>Private Channels</li>
-<li>Control package distribution, licensing etc.</li>
-</ul>
-<p><br> Package Creation via UI</p>
+<li>Concept
 <ul>
-<li>Currently only available in cmd line</li>
-<li>Share packages with colleagues and customers</li>
-</ul>
-<p><br> Additional Support on Server</p>
-<ul>
-<li>Conda packages and environments fully supported on Enterprise</li>
-<li>ArcGIS Python API Notebooks served on Enterprise</li>
-</ul>
-</section></section>
-<section><section id="using-packages-to-our-advantage" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Using Packages to our Advantage</h1></section><section id="open-source-ecosystem" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Open Source Ecosystem</h2>
-<p>The Python Ecosystem includes thousands of open-source packages. Saves development time and money.</p>
-<p>Esri is using several packages in ArcGIS</p>
-<ul>
-<li>NumPy</li>
-<li>SciPy</li>
-<li>matplotlib</li>
-<li>Pandas (coming soon)</li>
-</ul>
-</section><section id="open-source-ecosystem-1" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Open Source Ecosystem</h2>
-<p>Automate or Extend your ArcGIS capabilities</p>
-<ul>
-<li><a href="https://repo.continuum.io/pkgs/">Thousands of open-souce Python packages</a></li>
-<li><a href="https://conda-forge.github.io/feedstocks">Conda-Forge community</a></li>
-</ul>
-<p>Easily package and share your work</p>
-<ul>
-<li><a href="https://github.com/conda/conda-build">Conda-build</a></li>
-<li><a href="https://anaconda.org/esri">Anaconda.org</a></li>
-<li>Host packages on network</li>
-</ul>
-</section><section id="setting-up-a-development-environment" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Setting up a Development Environment</h2>
-<p>What can we install? Not just scientific packages.</p>
-<ul>
-<li>Documentation</li>
-<li>Datasets</li>
-<li>GUI toolkits (PyQt, TKinter)</li>
-<li>Database Drivers (psycopg2)</li>
-<li>C++ Libraries (Boost)</li>
-<li>IDEs
-<ul>
-<li><a href="https://github.com/spyder-ide/spyder#overview">Spyder</a></li>
-<li><a href="https://jupyter.org/">Juptyer</a></li>
+<li>Small units of functionality added to a kernel</li>
+<li>Unix/Linux concept (apt-get, yum, etc)</li>
+<li>Not Python exclusive (npm, nuget, etc)</li>
 </ul></li>
-</ul>
-</section><section id="setting-up-a-production-environment" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Setting up a Production Environment</h2>
-<p>Proven environments that will ‘Just work’</p>
+<li>Versioning Friendly
 <ul>
-<li>Solves ‘works on my machine’ problem</li>
-<li>Metapackages
-<ul>
-<li>Packages which only have requirements</li>
+<li>Multiple versions available at one time</li>
+<li>Each version may depend on different, additional packages</li>
 </ul></li>
-<li><a href="https://conda.io/docs/using/envs.html#id12">Environment.yaml</a>
+<li>Similar to shipping a package from a retailer
 <ul>
-<li>More complex requirements.txt</li>
+<li>Ingredients, Warning Labels, Instruction Manual</li>
 </ul></li>
-</ul>
-</section></section>
-<section><section id="packaging-tools-the-right-way" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Packaging Tools the Right Way</h1></section><section id="creating-a-package" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Creating a Package</h2>
-<p>Using setuptools and distutils to create a Python Package.</p>
-<ul>
-<li>setuptools</li>
-<li>setup</li>
-<li>pkg_resources</li>
-<li>distutils</li>
-<li>Legacy, use setuptools if possible</li>
 </ul>
 <figure>
 <img src="img/pkg.png" />
 </figure>
-</section><section id="deploying-a-package" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Deploying a Package</h2>
-<p>On a network</p>
+</section><section id="package-structure" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Package Structure</h2>
+<figure>
+<img src="img/structure.png" />
+</figure>
 <ul>
-<li>Point at a network location containing a package</li>
+<li>Python Packaging Authority
+<ul>
+<li>https://www.pypa.io/en/latest/</li>
+<li>https://packaging.python.org/distributing/</li>
+</ul></li>
+<li>Sample Github Project
+<ul>
+<li>https://github.com/pypa/sampleproject</li>
+</ul></li>
 </ul>
-<p>Via a http server</p>
+</section><section id="channels" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Channels</h2>
 <ul>
-<li>All advantages of any http service</li>
-<li>Authentication</li>
-<li>Metrics</li>
-<li>Availability</li>
+<li>Concept
+<ul>
+<li>A source of related packages
+<ul>
+<li>A TV channel is a source of related shows</li>
+</ul></li>
+</ul></li>
+<li>Public Channel
+<ul>
+<li>Hosted on anaconda.org</li>
+<li>Free to create</li>
+<li>Similar to a public github repository</li>
+</ul></li>
+<li>Private Channel
+<ul>
+<li>A webserver which hosts packages</li>
+<li>As customizable as any other web service
+<ul>
+<li>Access Control</li>
+<li>Telemetry</li>
+</ul></li>
+</ul></li>
 </ul>
-<p>Anaconda.org</p>
-</section><section id="deploying-a-tool-as-a-service" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Deploying a Tool as a Service</h2>
-<p>Tools and data sets can be uploaded to ArcGIS Enterprise or ArcGIS Online as services.</p>
+<figure>
+<img src="img/channels.jpg" />
+</figure>
+</section><section id="anaconda.org-contributors-and-organizations" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Anaconda.org Contributors and Organizations</h2>
+<figure>
+<img src="img/anacondaorg.png" />
+</figure>
 <ul>
-<li>Custom GP Tools</li>
-<li>Datasets</li>
-<li>Results</li>
+<li>Similar structure to github organization/user repos</li>
 </ul>
-</section><section id="consuming-services-via-the-arcgis-python-api" class="slide level2" data-background="img/bg_left.jpg">
-<h2>Consuming services via the ArcGIS Python API</h2>
-<p>The ArcGIS Python API is a cross-platform solution which allows for users to view, administer and interact with services on ArcGIS Enterprise or ArcGIS Online.</p>
+</section><section id="channels-.condarc-file-structure" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Channels (.condarc file) Structure</h2>
 <ul>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/">Sample Notebooks</a></li>
+<li>Anaconda.org usernames as channel names</li>
+<li>Private Server as http://channel-name</li>
+<li>Local File as file:///file-name</li>
+</ul>
+<figure>
+<img src="img/condarc.png" />
+</figure>
+</section><section id="private-repository" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Private Repository</h2>
+<figure>
+<img src="img/repo.png" />
+</figure>
+<ul>
+<li>Simply a webserver hosting .tar.bz2 files</li>
+<li>Indexed with ‘conda index’ to create repodata.json</li>
+</ul>
+</section><section id="scalability" class="slide level2" data-background="img/bg_left.jpg">
+<h2>Scalability</h2>
+<ul>
+<li>Packages easily deploy as webservices
+<ul>
+<li>Container ecosystem (Docker etc)</li>
+</ul></li>
+<li>Automate setup of new workstations
+<ul>
+<li>Saves times for Sys Admins</li>
+</ul></li>
+<li>Distribute to as few or as many users as required</li>
+<li>Leverage open-source Python packages to save time and costs
+<ul>
+<li>Thousands of useful packages freely available</li>
+</ul></li>
+<li>Becoming an industry-standard Python utility
+<ul>
+<li>Increased familiarity</li>
+<li>Lowered complexity of onboarding</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="looking-ahead" class="titleslide slide level1" data-background="img/bg_right.jpg"><h1>Looking Ahead</h1></section><section id="arcgis-pro-2.0" class="slide level2" data-background="img/bg_left.jpg">
+<h2>ArcGIS Pro 2.0</h2>
+<ul>
+<li>Enhanced Environment Control in the User Interface</li>
+<li>Integration with R tools and the r-python bridge for ArcGIS</li>
+</ul>
+</section><section id="arcgis-pro-2.1" class="slide level2" data-background="img/bg_left.jpg">
+<h2>ArcGIS Pro 2.1</h2>
+<ul>
+<li>Adding packaging and channel support</li>
+<li>ArcPy package</li>
 </ul>
 </section></section>
 <section><section id="thank-you-questionscomments-cdowesri.com" class="titleslide slide level1" data-background="img/bg_title.jpg"><h1>Thank you!! Questions/Comments?? cdow@esri.com</h1></section></section>
